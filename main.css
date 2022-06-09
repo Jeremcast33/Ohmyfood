@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: black;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: black;
+}
+
+html {
+  font-size: 17px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+header h1 {
+  font-family: "Shrikhand", cursive;
+  margin: 0;
+  color: black;
+  font-size: 30px;
+  margin: 12px 0 5px 0;
+}
+
+#location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ededed;
+  color: #4d4d4d;
+  font-size: 16px;
+  padding: 15px 0;
+  font-weight: bold;
+}
+#location:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f3c5";
+  margin-right: 16px;
+}
+
+#reservation {
+  background: #f5f4f4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 50px 0;
+}
+#reservation h2 {
+  text-align: center;
+  max-width: 250px;
+}
+#reservation p {
+  text-align: center;
+  margin: 10px 0 30px 0;
+  color: #5b5b5b;
+}
+#reservation button {
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 200px;
+  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
+  border: none;
+  padding: 15px 20px;
+  box-shadow: 1px 5px 8px #b5b5b5;
+}
+#reservation button:hover {
+  transform: scale(1.02);
+}
+
+#operation {
+  padding: 25px 0 50px 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  counter-reset: numbers;
+}
+#operation > div {
+  display: flex;
+  align-items: center;
+  background: #f6f6f6;
+  height: auto;
+  width: auto;
+  margin: 10px 20px 10px 30px;
+  border-radius: 20px;
+  position: relative;
+  padding: 25px;
+  box-shadow: 1px 5px 8px #e1e1e1;
+}
+#operation > div:hover {
+  transform: scale(1.02);
+  background-color: #f2e8ff;
+}
+#operation > div:hover i {
+  color: #9356DC;
+}
+#operation > div::before {
+  counter-increment: numbers;
+  content: counter(numbers);
+  background-color: #9356DC;
+  color: white;
+  padding: 3px 8px 3px 8px;
+  border-radius: 500px;
+  font-size: 15px;
+  position: absolute;
+  left: -10px;
+}
+#operation > div i {
+  color: #7e7e7e;
+  margin-right: 20px;
+}
+#operation > div p:nth-child(2) {
+  margin: 25px 50px 20px 50px;
+}
+#operation h2 {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+#restaurant {
+  background: #f5f4f4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 20px 60px 20px;
+}
+#restaurant a > div {
+  height: auto;
+  width: auto;
+  border-radius: 20px;
+  box-shadow: 1px 5px 8px #e1e1e1;
+}
+#restaurant a > div div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px 10px 12px;
+  font-weight: bolder;
+}
+#restaurant a > div div:nth-child(2) span {
+  display: flex;
+  font-weight: normal;
+  padding: 3px 0 5px 0;
+}
+#restaurant a > div img {
+  height: 170px;
+  width: 100%;
+  object-fit: cover;
+}
+
+footer {
+  background-color: #353535;
+  padding: 10px 20px 30px 20px;
+  display: flex;
+  flex-direction: column;
+}
+footer h3 {
+  font-family: "Shrikhand", cursive;
+  color: white;
+  font-size: 1.1rem;
+  margin: 12px 0 15px 0;
+  font-weight: normal;
+}
+footer nav li {
+  padding-bottom: 5px;
+}
+footer nav li a {
+  color: white;
+  font-size: 0.9rem;
+  padding-bottom: 10px;
+}
+
+/*# sourceMappingURL=main.css.map */
