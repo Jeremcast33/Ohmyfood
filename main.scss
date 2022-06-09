@@ -34,19 +34,15 @@ a {
     color: black;
 }
 
-
-// Class
-
-
 // Variables
 $color-primary: #9356DC ;
-$color-secondary: #FF79DA ;
+$color-secondary: #FF79DA;
 $color-tertiary: #99E2D0;
 
 
 // @mixin
 
-@mixin button {
+@mixin buttonHomepage {
     color: white;
     font-size: .9rem;
     border-radius: 200px;
@@ -54,6 +50,17 @@ $color-tertiary: #99E2D0;
     border: none;
     padding: 15px 20px;
     box-shadow: 1px 5px 8px #b5b5b5;
+}
+
+@mixin buttonPages {
+    color: white;
+    font-size: .9rem;
+    border-radius: 200px;
+    background: linear-gradient(to bottom right, #FF79DA, #9356DC);
+    border: none;
+    padding: 15px 50px;
+    box-shadow: 1px 5px 8px #b5b5b5;
+    margin: 30px 0 50px 0;
 }
 
 @mixin operationCards {
@@ -84,6 +91,45 @@ $color-tertiary: #99E2D0;
     width: auto;
     border-radius: 20px;
     box-shadow: 1px 5px 8px #e1e1e1;
+    margin-bottom: 20px;
+}
+
+@mixin formulasCards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f6f6f6;
+    height: auto;
+    width: auto;
+    margin: 10px 0 10px 0;
+    border-radius: 20px;
+    padding: 12px;
+    box-shadow: 1px 5px 8px #e1e1e1;
+    font-weight: bolder;
+}
+
+// Class
+
+// Badge "Nouveau"
+.new {
+    position: relative;
+}
+
+.new::before {
+    content: "Nouveau";
+    position: absolute;
+    height: 30px;
+    width: 80px;
+    background-color: $color-tertiary;
+    color: darken($color: $color-tertiary, $amount: 40%);
+    font-size: .8rem;
+    font-weight: bold;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 15px;
+    top: 15px;
 }
 
 // Header
@@ -100,6 +146,7 @@ header {
         color: black;
         font-size: 30px;
         margin: 12px 0 5px 0;
+        font-weight: normal;
     }
 }
 
@@ -143,7 +190,7 @@ header {
     }
 
     button {
-        @include button;
+        @include buttonHomepage;
         &:hover{
             transform: scale(1.02);
         }
@@ -198,10 +245,13 @@ header {
     display: flex;
     flex-direction: column;
     padding: 50px 20px 60px 20px; 
+    
+    h2{
+        margin-bottom: 20px;
+    }
 
     a>div{
         @include restaurantCards;
-
         div:nth-child(2){
             display: flex;
             justify-content: space-between;
@@ -217,6 +267,7 @@ header {
             height: 170px;
             width: 100%;
             object-fit: cover;
+            border-radius: 20px 20px 0 0;
         }
     } 
 }
@@ -234,13 +285,107 @@ footer{
         margin: 12px 0 15px 0;
         font-weight: normal;
     }
-    nav li{
-        padding-bottom: 5px;
-        a{
-            color: white;
-            font-size: .9rem;
-            padding-bottom: 10px;
+    nav{
+        li{
+            padding-bottom: 5px;
+            a{
+                color: white;
+                font-size: .9rem;
+                padding-bottom: 10px;
+            }
         }
-    }    
+        li:nth-child(1){
+            &:before {
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: "\f2e7";
+                margin-right: 12px;
+                color: white;
+                font-size: 15px;
+            }
+        }
+        li:nth-child(2){
+            &:before {
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: "\f4c4";
+                margin-right: 11px;
+                color: white;
+                font-size: 11px;
+            }
+        }  
+    } 
+    
+}
+
+// PAGES RESTAURANTS
+
+// Menu
+
+#banner img{
+    display: block;
+    position: absolute;
+}
+
+#restaurantTitle{
+    font-family: 'Shrikhand', cursive;
+    margin: 0;
+    color: black;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+#menu{
+    border-radius: 35px 35px 0 0;
+    padding: 0 20px;
+    background: #f5f4f4;
+    position: relative;
+    margin-top: 200px;
+    div:nth-child(1){
+        display: flex;
+        justify-content: space-between;
+        padding-top: 30px;
+    }
+    h3{
+        position: relative;
+        font-weight: 400;
+        font-size: .9rem;
+        margin: 40px 0 20px 0;
+        &::after{
+            content: "";
+            width: 35px;
+            height: 3px;
+            background: $color-tertiary;
+            position: absolute;
+            left: 0px;
+            bottom: -8px;
+        }  
+    }
+    div:nth-child(5){
+        display: flex;
+        justify-content: center;
+        button {
+            @include buttonPages;
+            &:hover{
+                transform: scale(1.02);
+            }
+        }
+    }
+
+    // Class
+    .formulas>div{
+        @include formulasCards;
+        span{
+            display: flex;
+            font-weight: 400;
+            font-size: .8rem;
+            padding-top: 5px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        p:nth-child(2){
+            padding-top: 20px;
+        }
+    }
 }
 
