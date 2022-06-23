@@ -13,7 +13,7 @@
 <body>
     <!-- Logo -->
     <header>
-        <a href="../index.html"><i class="fa-solid fa-arrow-left"></i></a>
+        <a href="../index.html" id="arrowLink"><i class="fa-solid fa-arrow-left"></i></a>
         <h1>ohmyfood</h1>
     </header>
 
@@ -24,63 +24,129 @@
 
     <!-- Menu -->
     <main id="menu">
-            <div>
-                <h2 id="restaurantTitle">La palette du goût</h2>
-                <i class="fa-solid fa-heart"></i>
+        <div class="restaurant__name">
+            <h2 id="restaurantTitle">La palette du goût</h2>
+            <i class="fa-regular fa-heart"></i>
+        </div>
+        <!-- Entrées -->
+        <div class="formulas">
+            <h3>ENTRÉES</h3>
+            <div class="formulas__content">
+                <div class="description-and-price">
+                    <div class="formulas__content__description">
+                        <p>Fricassée d'escargot <span>Au piment d'espelette</span></p>
+                    </div>
+                    <div class="formulas__content__price">
+                        <p>25€</p>
+                    </div>
+                </div>
+                <div class="validation__check"><i class="fa-solid fa-circle-check"></i></div>
             </div>
-            <!-- Entrées -->
-            <div class="formulas">
-                <h3>ENTRÉES</h3>
-                <div>
-                    <p>Fricassée d'escargot <span>Au piment d'espelette</span></p>
-                    <p>25€</p>   
+            <div class="formulas__content">
+                <div class="description-and-price">
+                    <div class="formulas__content__description">
+                        <p>Foie gras de canard mi-cuit <span>Et ses copeaux de truffe noire</span></p>
+                    </div>
+                    <div class="formulas__content__price">
+                        <p>35€</p>
+                    </div>
                 </div>
-                <div>
-                    <p>Foie gras de canard mi-cuit <span>Et ses copeaux de truffe noire</span></p>
-                    <p>35€</p>
-                </div>
-                <div>
-                    <p>Oeuf au plat <span>Assaisonné à la truffe sur lit de poireaux</span></p>
-                    <p>20€</p>
-                </div>
+                <div class="validation__check"><i class="fa-solid fa-circle-check"></i></div>
             </div>
-            <!-- Plats -->
-            <div class="formulas">
-                <h3>PLATS</h3>
-                <div>
-                    <p>Filet de boeurf aux herbes <span>Accompagné de sa ribambelle de légumes</span></p>
-                    <p>40€</p>     
+            <div class="formulas__content">
+                <div class="description-and-price">
+                    <div class="formulas__content__description">
+                        <p>Oeuf au plat <span>Assaisonné à la truffe sur lit de poireaux</span></p>
+                    </div>
+                    <div class="formulas__content__price">
+                        <p>20€</p>
+                    </div>
                 </div>
-                <div>
-                    <p>Parmentier de queue de boeuf <span>À la truffe noire sur sa purée de panais</span></p>
-                    <p>35€</p> 
-                </div>
-                <div>
-                    <p>Filet de Turbot <span>Aux agrumes</span></p>
-                    <p>44€</p>
-                </div>
+                <div class="validation__check"><i class="fa-solid fa-circle-check"></i></div>
             </div>
-            <!-- Desserts -->
-            <div class="formulas">
-                <h3>DESSERTS</h3>
-                <div>
-                    <p>Paris-Brest <span>Revisité</span></p>
-                    <p>18€</p>
+
+        </div>
+        <!-- Plats -->
+        <div class="formulas">
+            <h3>PLATS</h3>
+            <div class="formulas__content">
+                <div class="description-and-price">
+                    <div class="formulas__content__description">
+                        <p>Filet de boeurf aux herbes <span>Accompagné de sa ribambelle de légumes</span></p>
+                    </div>
+                    <div class="formulas__content__price">
+                        <p>40€</p>
+                    </div>
                 </div>
-                <div>
-                    <p>Macaron au chocolat d'exception <span>Et glace à la vanille de Madagascar</span></p>
-                    <p>22€</p>
-                </div>
-                <div>
-                    <p>Mousse au chocolat <span>Au piment d'espelette et à la truffe noire</span></p>
-                    <p>23€</p>
-                </div>
+                <div class="validation__check"><i class="fa-solid fa-circle-check"></i></div>
             </div>
-            <!-- Boutton -->
-            <div>
-                <button type="submit"><p>Commander</p></button>
+            <div class="formulas__content">
+                <div class="description-and-price">
+                    <div class="formulas__content__description">
+                        <p>Parmentier de queue de boeuf <span>À la truffe noire sur sa purée de panais</span></p>
+                    </div>
+                    <div class="formulas__content__price">
+                        <p>35€</p>
+                    </div>
+                </div>
+                <div class="validation__check"><i class="fa-solid fa-circle-check"></i></div>
             </div>
-        </main>
+            <div class="formulas__content">
+                <div class="description-and-price">
+                    <div class="formulas__content__description">
+                        <p>Filet de Turbot <span>Aux agrumes</span></p>
+                    </div>
+                    <div class="formulas__content__price">
+                        <p>44€</p>
+                    </div>
+                </div>
+                <div class="validation__check"><i class="fa-solid fa-circle-check"></i></div>
+            </div>
+        </div>
+        <!-- Desserts -->
+        <div class="formulas">
+            <h3>DESSERTS</h3>
+            <div class="formulas__content">
+                <div class="description-and-price">
+                    <div class="formulas__content__description">
+                        <p>Paris-Brest <span>Revisité</span></p>
+                    </div>
+                    <div class="formulas__content__price">
+                        <p>18€</p>
+                    </div>
+                </div>
+                <div class="validation__check"><i class="fa-solid fa-circle-check"></i></div>
+            </div>
+            <div class="formulas__content">
+                <div class="description-and-price">
+                    <div class="formulas__content__description">
+                        <p>Macaron au chocolat d'exception <span>Et glace à la vanille de Madagascar</span></p>
+                    </div>
+                    <div class="formulas__content__price">
+                        <p>22€</p>
+                    </div>
+                </div>
+                <div class="validation__check"><i class="fa-solid fa-circle-check"></i></div>
+            </div>
+            <div class="formulas__content">
+                <div class="description-and-price">
+                    <div class="formulas__content__description">
+                        <p>Mousse au chocolat <span>Au piment d'espelette et à la truffe noire</span></p>
+                    </div>
+                    <div class="formulas__content__price">
+                        <p>23€</p>
+                    </div>
+                </div>
+                <div class="validation__check"><i class="fa-solid fa-circle-check"></i></div>
+            </div>
+        </div>
+        <!-- Boutton -->
+        <div>
+            <button type="submit">
+                <p>Commander</p>
+            </button>
+        </div>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -90,7 +156,7 @@
                 <li><a href="#">Proposer un restaurant</a></li>
                 <li><a href="#">Devenir partenaire</a></li>
                 <li><a href="#">Mentions légales</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="mailto:nomprenom@machin.com">Contact</a></li>
             </ul>
         </nav>
     </footer>

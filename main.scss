@@ -34,19 +34,20 @@ a {
     color: black;
 }
 
-// Variables
-$color-primary: #9356DC ;
+// Variables ===================================
+$color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tertiary: #99E2D0;
+$gradient: linear-gradient(to bottom right, #FF79DA, #9356DC);
 
 
-// @mixin
+// @mixin ===================================
 
 @mixin buttonHomepage {
     color: white;
     font-size: .9rem;
     border-radius: 200px;
-    background: linear-gradient(to bottom right, #FF79DA, #9356DC);
+    background: $gradient;
     border: none;
     padding: 15px 20px;
     box-shadow: 1px 5px 8px #b5b5b5;
@@ -56,7 +57,7 @@ $color-tertiary: #99E2D0;
     color: white;
     font-size: .9rem;
     border-radius: 200px;
-    background: linear-gradient(to bottom right, #FF79DA, #9356DC);
+    background: $gradient;
     border: none;
     padding: 15px 50px;
     box-shadow: 1px 5px 8px #b5b5b5;
@@ -95,20 +96,77 @@ $color-tertiary: #99E2D0;
 }
 
 @mixin formulasCards {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background: #f6f6f6;
     height: auto;
     width: auto;
     margin: 10px 0 10px 0;
     border-radius: 20px;
-    padding: 12px;
     box-shadow: 1px 5px 8px #e1e1e1;
     font-weight: bolder;
 }
 
-// Class
+@mixin shadowHover {
+    box-shadow: 2px 6px 9px #929292;
+}
+
+// @keyframes ===================================
+// Page loader
+@keyframes loader {
+    from {
+        visibility: visible;
+        opacity: .8;
+    }
+
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// Bouton check
+@keyframes slide-left {
+    0% {
+        transform: translateX(0);
+        
+    }
+
+    100% {
+        transform: translateX(-70px);
+        
+    }
+}
+
+@keyframes icone-rotate {
+    0% {
+        transform: rotate(-360deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+// Animation menu
+@keyframes animation-menu {
+    from {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(1);
+        opacity: 1;
+    }
+}
+
+
+// Class ===================================
 
 // Badge "Nouveau"
 .new {
@@ -132,7 +190,34 @@ $color-tertiary: #99E2D0;
     top: 15px;
 }
 
-// Header
+// Page loader
+.loader {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100vh;
+    opacity: 0.8;
+    inset: 0;
+    z-index: 1;
+    animation: loader 1s 2s both;
+
+    &::after {
+        content: "";
+        height: 50px;
+        width: 50px;
+        border-left: solid 5px transparent;
+        border-top: solid 5px $color-primary;
+        border-right: solid 5px $color-secondary;
+        border-bottom: solid 5px $color-tertiary;
+        border-radius: 50%;
+        animation: spin 1s infinite ease-in-out;
+    }
+
+}
+
+// Header ===================================
 header {
     position: relative;
     display: flex;
@@ -150,7 +235,7 @@ header {
     }
 }
 
-// Localisation
+// Localisation ===================================
 #location {
     display: flex;
     justify-content: center;
@@ -160,6 +245,7 @@ header {
     font-size: 16px;
     padding: 15px 0;
     font-weight: bold;
+
     &:before {
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
@@ -168,7 +254,7 @@ header {
     }
 }
 
-// Section 1 Réservation
+// Section 1 Réservation ===================================
 #reservation {
     background: #f5f4f4;
     width: 100%;
@@ -191,13 +277,16 @@ header {
 
     button {
         @include buttonHomepage;
-        &:hover{
+
+        &:hover {
+            transition: transform 400ms;
             transform: scale(1.02);
+            @include shadowHover;
         }
     }
 }
 
-// Section 2 Fonctionnement
+// Section 2 Fonctionnement ===================================
 #operation {
     padding: 25px 0 50px 0;
     width: 100%;
@@ -209,25 +298,27 @@ header {
 
     >div {
         @include operationCards;
-        &:hover{
-            transform: scale(1.02);
+
+        &:hover {
             background-color: #f2e8ff;
-            i{
+            @include shadowHover;
+            i {
                 color: $color-primary;
             }
         }
-            &::before{
-                counter-increment: numbers;
-                content: counter(numbers);
-                @include operationCardsNumber
-            }
 
-        i{
+        &::before {
+            counter-increment: numbers;
+            content: counter(numbers);
+            @include operationCardsNumber
+        }
+
+        i {
             color: #7e7e7e;
             margin-right: 20px;
         }
 
-        p:nth-child(2){
+        p:nth-child(2) {
             margin: 25px 50px 20px 50px;
         }
     }
@@ -238,63 +329,93 @@ header {
     }
 }
 
-// Section 3 Restaurants
+// Section 3 Restaurants ===================================
 #restaurant {
     background: #f5f4f4;
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 50px 20px 60px 20px; 
-    
-    h2{
+    padding: 50px 20px 60px 20px;
+
+    h2 {
         margin-bottom: 20px;
     }
 
-    a>div{
+    a>div {
         @include restaurantCards;
-        div:nth-child(2){
+
+        div:nth-child(2) {
             display: flex;
             justify-content: space-between;
             padding: 10px 30px 10px 12px;
             font-weight: bolder;
-            span{
+            position: relative;
+
+            span {
                 display: flex;
                 font-weight: normal;
                 padding: 3px 0 5px 0;
             }
         }
-        img{
+
+        img {
             height: 170px;
             width: 100%;
             object-fit: cover;
             border-radius: 20px 20px 0 0;
         }
-    } 
+    }
+
+    i {
+        font-size: 25px;
+        padding-top: 8px;
+        position: absolute;
+        right: 30px;
+    }
+
+    .fa-solid {
+        color: transparent;
+        background: $gradient;
+        background-clip: text;
+        -webkit-background-clip: text;
+        opacity: 0;
+        height: 0;
+        transition: all 300ms;
+
+        &:hover {
+            opacity: 1;
+            height: 100%;
+        }
+    }
 }
 
-// Footer
-footer{
+// Footer ===================================
+footer {
     background-color: #353535;
     padding: 10px 20px 30px 20px;
     display: flex;
     flex-direction: column;
-    h3{
+
+    h3 {
         font-family: "Shrikhand", cursive;
         color: white;
         font-size: 1.1rem;
         margin: 12px 0 15px 0;
         font-weight: normal;
     }
-    nav{
-        li{
+
+    nav {
+        li {
             padding-bottom: 5px;
-            a{
+
+            a {
                 color: white;
                 font-size: .9rem;
                 padding-bottom: 10px;
             }
         }
-        li:nth-child(1){
+
+        li:nth-child(1) {
             &:before {
                 font-family: "Font Awesome 5 Free";
                 font-weight: 900;
@@ -304,7 +425,8 @@ footer{
                 font-size: 15px;
             }
         }
-        li:nth-child(2){
+
+        li:nth-child(2) {
             &:before {
                 font-family: "Font Awesome 5 Free";
                 font-weight: 900;
@@ -313,21 +435,27 @@ footer{
                 color: white;
                 font-size: 11px;
             }
-        }  
-    } 
-    
+        }
+    }
+
 }
 
-// PAGES RESTAURANTS
+// PAGES RESTAURANTS ===================================
 
-// Menu
+// Menu ===================================
 
-#banner img{
+#arrowLink {
+    position: absolute;
+    left: 20px;
+    top: 23px;
+}
+
+#banner img {
     display: block;
     position: absolute;
 }
 
-#restaurantTitle{
+#restaurantTitle {
     font-family: 'Shrikhand', cursive;
     margin: 0;
     color: black;
@@ -335,23 +463,33 @@ footer{
     font-weight: normal;
 }
 
-#menu{
+#menu {
     border-radius: 35px 35px 0 0;
     padding: 0 20px;
     background: #f5f4f4;
     position: relative;
     margin-top: 200px;
-    div:nth-child(1){
+
+    .restaurant__name {
         display: flex;
         justify-content: space-between;
         padding-top: 30px;
+
+        i {
+            font-size: 25px;
+            padding-top: 8px;
+            position: absolute;
+            right: 20px;
+        }
     }
-    h3{
+
+    h3 {
         position: relative;
         font-weight: 400;
         font-size: .9rem;
         margin: 40px 0 20px 0;
-        &::after{
+
+        &::after {
             content: "";
             width: 35px;
             height: 3px;
@@ -359,33 +497,92 @@ footer{
             position: absolute;
             left: 0px;
             bottom: -8px;
-        }  
+        }
     }
-    div:nth-child(5){
+
+    div:nth-child(5) {
         display: flex;
         justify-content: center;
+
         button {
             @include buttonPages;
-            &:hover{
+
+            &:hover {
+                transition: transform 400ms;
                 transform: scale(1.02);
+                @include shadowHover;
             }
         }
     }
 
-    // Class
-    .formulas>div{
-        @include formulasCards;
-        span{
-            display: flex;
-            font-weight: 400;
-            font-size: .8rem;
-            padding-top: 5px;
-            text-overflow: ellipsis;
-            overflow: hidden;
+    // Class ===================================
+    .formulas {
+
+        @for $i from 1 through 3 {
+            div:nth-of-type(#{$i}) {
+                animation-delay: 100ms * $i;
+            }
         }
-        p:nth-child(2){
-            padding-top: 20px;
+
+        .formulas__content {
+            position: relative;
+            @include formulasCards;
+            animation: animation-menu 1s;
+            animation-fill-mode: both;
+
+            .description-and-price {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: end;
+                padding: 12px;
+
+                .formulas__content__description {
+                    span {
+                        display: flex;
+                        font-weight: 400;
+                        font-size: .8rem;
+                        padding-top: 5px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                }
+
+                .formulas__content__price {
+                    padding-right: 20px;
+                }
+            }
+
+            .validation__check {
+                display: none;
+                position: absolute;
+                background: #99E2D0;
+                border-radius: 0 15px 15px 0;
+                right: 0px;
+                padding: 0 13px;
+                height: 100%;
+
+                i {
+                    font-size: 30px;
+                    color: white;
+                }
+            }
+
+            &:hover {
+                .validation__check {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    animation: slide-left .5s ease-in-out forwards;
+                    transform-origin: right;
+                    i{
+                        animation: icone-rotate .5s;
+                    }
+                }
+                .formulas__content__price {
+                    animation: slide-left .5s ease-in-out forwards;
+                }
+            }
         }
     }
 }
-
