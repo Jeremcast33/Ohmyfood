@@ -39,6 +39,8 @@ $color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tertiary: #99E2D0;
 $gradient: linear-gradient(to bottom right, #FF79DA, #9356DC);
+$background-color-1:#4d4d4d ;
+$background-color-2: #f5f4f4;
 
 
 // @mixin ===================================
@@ -51,6 +53,7 @@ $gradient: linear-gradient(to bottom right, #FF79DA, #9356DC);
     border: none;
     padding: 15px 20px;
     box-shadow: 1px 5px 8px #b5b5b5;
+    cursor: pointer;
 }
 
 @mixin buttonPages {
@@ -62,6 +65,12 @@ $gradient: linear-gradient(to bottom right, #FF79DA, #9356DC);
     padding: 15px 50px;
     box-shadow: 1px 5px 8px #b5b5b5;
     margin: 30px 0 50px 0;
+    cursor: pointer;
+}
+
+@mixin buttonHover {
+    box-shadow: 2px 6px 9px #646464;
+    opacity: .8;
 }
 
 @mixin operationCards {
@@ -75,6 +84,7 @@ $gradient: linear-gradient(to bottom right, #FF79DA, #9356DC);
     position: relative;
     padding: 25px;
     box-shadow: 1px 5px 8px #e1e1e1;
+    cursor: pointer;
 }
 
 @mixin operationCardsNumber {
@@ -95,6 +105,10 @@ $gradient: linear-gradient(to bottom right, #FF79DA, #9356DC);
     margin-bottom: 20px;
 }
 
+@mixin restaurantCards_Hover {
+    box-shadow: 2px 6px 9px #646464;
+}
+
 @mixin formulasCards {
     background: #f6f6f6;
     height: auto;
@@ -103,10 +117,7 @@ $gradient: linear-gradient(to bottom right, #FF79DA, #9356DC);
     border-radius: 20px;
     box-shadow: 1px 5px 8px #e1e1e1;
     font-weight: bolder;
-}
-
-@mixin shadowHover {
-    box-shadow: 2px 6px 9px #929292;
+    cursor: pointer;
 }
 
 // @keyframes ===================================
@@ -130,17 +141,17 @@ $gradient: linear-gradient(to bottom right, #FF79DA, #9356DC);
 }
 
 // Bouton check
+
 @keyframes slide-left {
     0% {
-        transform: translateX(0);
-        
+              transform: scaleX(0);
+              transform-origin: 100%;
     }
-
     100% {
-        transform: translateX(-70px);
-        
+              transform: scaleX(1);
+              transform-origin: 100%;
     }
-}
+  }
 
 @keyframes icone-rotate {
     0% {
@@ -224,6 +235,7 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
+    box-shadow: 1px 1px 8px #b5b5b5;
 
     h1 {
         font-family: 'Shrikhand', cursive;
@@ -241,7 +253,7 @@ header {
     justify-content: center;
     align-items: center;
     background: #ededed;
-    color: #4d4d4d;
+    color: $background-color-1;
     font-size: 16px;
     padding: 15px 0;
     font-weight: bold;
@@ -256,7 +268,7 @@ header {
 
 // Section 1 Réservation ===================================
 #reservation {
-    background: #f5f4f4;
+    background: $background-color-2;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -281,7 +293,7 @@ header {
         &:hover {
             transition: transform 400ms;
             transform: scale(1.02);
-            @include shadowHover;
+            @include buttonHover;
         }
     }
 }
@@ -300,11 +312,15 @@ header {
         @include operationCards;
 
         &:hover {
-            background-color: #f2e8ff;
-            @include shadowHover;
+            background-color: lighten($background-color-2, 10%);
+            box-shadow: 2px 6px 9px #646464;
             i {
                 color: $color-primary;
             }
+        }
+
+        &:active {
+            background-color: #f2e8ff;
         }
 
         &::before {
@@ -331,7 +347,7 @@ header {
 
 // Section 3 Restaurants ===================================
 #restaurant {
-    background: #f5f4f4;
+    background: $background-color-2;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -344,10 +360,14 @@ header {
     a>div {
         @include restaurantCards;
 
+        &:hover{
+            @include restaurantCards_Hover;
+        }
+
         div:nth-child(2) {
             display: flex;
             justify-content: space-between;
-            padding: 10px 30px 10px 12px;
+            padding: 10px 20px 10px 12px;
             font-weight: bolder;
             position: relative;
 
@@ -365,28 +385,37 @@ header {
             border-radius: 20px 20px 0 0;
         }
     }
-
+// Coeur ===================================
+#heart_animation {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
     i {
-        font-size: 25px;
-        padding-top: 8px;
-        position: absolute;
-        right: 30px;
+        font-size: 1.5rem;
     }
+}
 
-    .fa-solid {
-        color: transparent;
-        background: $gradient;
-        background-clip: text;
-        -webkit-background-clip: text;
-        opacity: 0;
-        height: 0;
-        transition: all 300ms;
+#heart_animation i::after {
+    font: var(--fa-font-solid);
+    content: '\f004';
+    background: $gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    height: 0;
+    transition: all .5s;
+}
 
-        &:hover {
-            opacity: 1;
-            height: 100%;
-        }
-    }
+#heart_animation:hover i::after {
+    opacity: 1;
+    height: 100%;
+}
 }
 
 // Footer ===================================
@@ -466,7 +495,7 @@ footer {
 #menu {
     border-radius: 35px 35px 0 0;
     padding: 0 20px;
-    background: #f5f4f4;
+    background: $background-color-2;
     position: relative;
     margin-top: 200px;
 
@@ -474,13 +503,39 @@ footer {
         display: flex;
         justify-content: space-between;
         padding-top: 30px;
+        align-items: center;
 
-        i {
-            font-size: 25px;
-            padding-top: 8px;
-            position: absolute;
-            right: 20px;
+        #heart_animation {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            padding: 0;
+            i {
+                font-size: 1.5rem;
+            }
         }
+        
+        #heart_animation i::after {
+            font: var(--fa-font-solid);
+            content: '\f004';
+            background: $gradient;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0;
+            height: 0;
+            transition: all .5s;
+        }
+        
+        #heart_animation:hover i::after {
+            opacity: 1;
+            height: 100%;
+        }
+
     }
 
     h3 {
@@ -500,7 +555,7 @@ footer {
         }
     }
 
-    div:nth-child(5) {
+    .button {
         display: flex;
         justify-content: center;
 
@@ -510,19 +565,53 @@ footer {
             &:hover {
                 transition: transform 400ms;
                 transform: scale(1.02);
-                @include shadowHover;
+                @include buttonHover;
             }
         }
     }
 
+    #content-1{
+        animation-delay: 100ms
+    }
+
+    #content-2{
+        animation-delay: 200ms
+    }
+
+    #content-3{
+        animation-delay: 300ms
+    }
+
+    #content-4{
+        animation-delay: 400ms
+    }
+
+    #content-5{
+        animation-delay: 500ms
+    }
+
+    #content-6{
+        animation-delay: 600ms
+    }
+
+    #content-7{
+        animation-delay: 700ms
+    }
+
+    #content-8{
+        animation-delay: 800ms
+    }
+
+    #content-9{
+        animation-delay: 900ms
+    }
+
+    #content-10{
+        animation-delay: 1s
+    }
+
     // Class ===================================
     .formulas {
-
-        @for $i from 1 through 3 {
-            div:nth-of-type(#{$i}) {
-                animation-delay: 100ms * $i;
-            }
-        }
 
         .formulas__content {
             position: relative;
@@ -538,18 +627,26 @@ footer {
                 padding: 12px;
 
                 .formulas__content__description {
-                    span {
-                        display: flex;
-                        font-weight: 400;
-                        font-size: .8rem;
-                        padding-top: 5px;
-                        text-overflow: ellipsis;
+                    width: calc(100% - 56px);
+
+                    p{
+                        white-space: nowrap;
                         overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        span {
+                            display: flex;
+                            font-weight: 400;
+                            font-size: .8rem;
+                            padding-top: 5px;
+                        }
                     }
+                    
                 }
 
                 .formulas__content__price {
-                    padding-right: 20px;
+                    padding-right: 10px;
+                    font-size: .9rem;
                 }
             }
 
@@ -573,16 +670,69 @@ footer {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    animation: slide-left .5s ease-in-out forwards;
+                    animation: slide-left .4s ease-in-out forwards;
                     transform-origin: right;
+                    top: 0;
                     i{
                         animation: icone-rotate .5s;
                     }
                 }
-                .formulas__content__price {
-                    animation: slide-left .5s ease-in-out forwards;
+
+                .description-and-price {
+                    padding-right: 60px;
+                    transition: .4s ease-in-out;
                 }
             }
+        }
+    }
+}
+
+@media screen and (min-width: 991px){
+// Page d'acceuil ===================================
+    #restaurant {
+        
+        div{
+            display: flex;
+            flex-flow: wrap;
+            width: 100%;
+            justify-content: space-between;
+
+            a {
+                width: 49%;
+
+                #heart_animation{
+                    width: auto;
+                }
+            }
+        }
+    }
+
+// Page restaurants ===================================
+    
+    #menu {
+        margin-top: 290px;
+    }
+
+    #all-formulas {
+        display: flex;
+        justify-content: space-between;
+
+        .formulas {
+            width: 32%;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 900px;
+    }
+
+    footer {
+        position: relative;
+
+        nav ul{
+            display: flex;
+            justify-content: space-between;
         }
     }
 }
