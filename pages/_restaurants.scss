@@ -1,0 +1,200 @@
+// Menu ===================================
+
+#arrowLink {
+    position: absolute;
+    left: 20px;
+    top: 23px;
+}
+
+#banner img {
+    display: block;
+    position: absolute;
+}
+
+#restaurantTitle {
+    font-family: 'Shrikhand', cursive;
+    margin: 0;
+    color: black;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+#menu {
+    border-radius: 35px 35px 0 0;
+    padding: 0 20px;
+    background: $background-color-2;
+    position: relative;
+    margin-top: 200px;
+
+    .restaurant__name {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 30px;
+        align-items: center;
+
+        #heart_animation {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            padding: 0;
+            i {
+                font-size: 1.5rem;
+            }
+        }
+        
+        #heart_animation i::after {
+            font: var(--fa-font-solid);
+            content: '\f004';
+            background: $gradient;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0;
+            height: 0;
+            transition: all .5s;
+        }
+        
+        #heart_animation:hover i::after {
+            opacity: 1;
+            height: 100%;
+        }
+
+    }
+
+    h3 {
+        position: relative;
+        font-weight: 400;
+        font-size: .9rem;
+        margin: 40px 0 20px 0;
+
+        &::after {
+            content: "";
+            width: 35px;
+            height: 3px;
+            background: $color-tertiary;
+            position: absolute;
+            left: 0px;
+            bottom: -8px;
+        }
+    }
+
+    #content-1{
+        animation-delay: 100ms
+    }
+
+    #content-2{
+        animation-delay: 200ms
+    }
+
+    #content-3{
+        animation-delay: 300ms
+    }
+
+    #content-4{
+        animation-delay: 400ms
+    }
+
+    #content-5{
+        animation-delay: 500ms
+    }
+
+    #content-6{
+        animation-delay: 600ms
+    }
+
+    #content-7{
+        animation-delay: 700ms
+    }
+
+    #content-8{
+        animation-delay: 800ms
+    }
+
+    #content-9{
+        animation-delay: 900ms
+    }
+
+    #content-10{
+        animation-delay: 1s
+    }
+
+    // Formules ===================================
+    .formulas {
+
+        .formulas__content {
+            position: relative;
+            @include formulasCards;
+            animation: animation-menu 1s;
+            animation-fill-mode: both;
+
+            .description-and-price {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: end;
+                padding: 12px;
+
+                .formulas__content__description {
+                    width: calc(100% - 56px);
+
+                    p{
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        span {
+                            display: flex;
+                            font-weight: 400;
+                            font-size: .8rem;
+                            padding-top: 5px;
+                        }
+                    }
+                    
+                }
+
+                .formulas__content__price {
+                    padding-right: 10px;
+                    font-size: .9rem;
+                }
+            }
+
+            .validation__check {
+                display: none;
+                position: absolute;
+                background: #99E2D0;
+                border-radius: 0 15px 15px 0;
+                right: 0px;
+                padding: 0 13px;
+                height: 100%;
+
+                i {
+                    font-size: 30px;
+                    color: white;
+                }
+            }
+
+            &:hover {
+                .validation__check {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    animation: slide-left .4s ease-in-out forwards;
+                    transform-origin: right;
+                    top: 0;
+                    i{
+                        animation: icone-rotate .5s;
+                    }
+                }
+
+                .description-and-price {
+                    padding-right: 60px;
+                    transition: .4s ease-in-out;
+                }
+            }
+        }
+    }
+}

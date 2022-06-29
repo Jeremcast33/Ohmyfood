@@ -1,0 +1,57 @@
+// @keyframes ===================================
+
+// Loader
+
+@keyframes loader {
+    from {
+        visibility: visible;
+        opacity: .8;
+    }
+
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// Animation menu
+@keyframes animation-menu {
+    from {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// Check validation
+
+@keyframes slide-left {
+    0% {
+              transform: scaleX(0);
+              transform-origin: 100%;
+    }
+    100% {
+              transform: scaleX(1);
+              transform-origin: 100%;
+    }
+  }
+
+@keyframes icone-rotate {
+    0% {
+        transform: rotate(-360deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}

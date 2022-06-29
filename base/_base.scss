@@ -1,0 +1,33 @@
+* {
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: black
+}
+
+h4 {
+    font-weight: bold;
+    font-size: .9rem;
+    color: black
+}
+
+html {
+    font-size: 17px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

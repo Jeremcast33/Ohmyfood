@@ -1,0 +1,32 @@
+// Bouton page d'acceuil
+#reservation{
+
+    button {
+        @include buttonHomepage;
+
+        &:hover {
+            transition: transform 400ms;
+            transform: scale(1.02);
+            @include buttonHover;
+        }
+    }
+}
+
+// Bouton pages restaurants
+#menu {
+    
+    .button {
+        display: flex;
+        justify-content: center;
+
+        button {
+            @include buttonPages;
+
+            &:hover {
+                transition: transform 400ms;
+                transform: scale(1.02);
+                @include buttonHover;
+            }
+        }
+    }
+}
