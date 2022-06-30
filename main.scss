@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap');
 
-@import "./utils/variables";
-@import "./utils/mixins";
-@import "./utils/animations";
-@import "./base/base";
-@import "./base/mediaqueries";
-@import "./components/buttons";
-@import "./layout/loader";
-@import "./layout/header";
-@import "./layout/footer";
-@import "./pages/index";
-@import "./pages/restaurants";
+@use "./styles/utils/variables";
+@use "./styles/utils/mixins";
+@use "./styles/utils/animations";
+@use "./styles/base/base";
+@use "./styles/base/mediaqueries";
+@use "./styles/components/buttons";
+@use "./styles/layout/loader";
+@use "./styles/layout/header";
+@use "./styles/layout/footer";
+@use "./styles/pages/index";
+@use "./styles/pages/restaurants";
